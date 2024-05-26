@@ -3,7 +3,7 @@ function y = hermitron(t, x, F, dF1, dFn)
     % x - interpolation points
     % F - function values at x
     % dF1: dF1(i) = F'(x(i))
-    % dFn: dFn(i) = F^(n)(x(i)) (i-th derivative at x(n))
+    % dFn: dFn(i) = F^(i)(x(n)) (i-th derivative at x(n))
     % y - interpolated values at t
 
     n = length(x);
