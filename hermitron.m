@@ -17,26 +17,16 @@ function y = hermitron(t, x, F, dF1, dFn)
     total = n + 2 * k; % Adjust based on how many derivatives are known at each end
 
     indexes = zeros(1, total); 
-    z = zeros(1, total);
-    Q = zeros(1, total);
 
     % set indexes for the first and last k points
-    for i = 1:k
-        indexes(i) = 1;
-        indexes(total-i+1) = n;
-    end
+    indexes(1:k) = 1;
+    indexes(total-k+1:total) = n;
 
     % set indexes for the rest of the points
-    for i = k+1:total-k
-        indexes(i) = i - k;
-    end
+    indexes(k+1:total-k) = (k+1:total-k) - k;
 
-    % indexes
-
-    for i = 1:total
-        z(i) = x(indexes(i));
-        Q(i) = F(indexes(i));
-    end
+    z = x(indexes);
+    Q = F(indexes);
 
     % Calculate divided differences with derivative conditions
     for i = 2:total
