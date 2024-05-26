@@ -56,8 +56,6 @@ function y = hermitron(t, x, F, dF1, dFn)
         end
     end
 
-
-
     % evaluate the Hermite polynomial at each point in t
     % Horner's method
     y = zeros(size(t));
